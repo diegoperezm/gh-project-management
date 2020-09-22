@@ -135,13 +135,6 @@ https://github.com/diegoperezm/gh-project-management/pull/2
 
 
 
-****  close a pull request {number | url | branch } [flags]
- 
- #+BEGIN_SRC 
- gh pr close  2
- #+END_SRC
-
-
 **** Change to master
 
  #+BEGIN_SRC 
@@ -179,6 +172,19 @@ git pull
 gh issue create --title "Add README dot org"  --project gh-project-management 
 #+END_SRC
 
+**** Interactive, choose:
+
+ - Body  [ edit body or press enter to skip ]
+
+ - What's next? [Use arrows to move, type to filter]
+    -> Submit
+
+You will get an issue number:
+
+#+BEGIN_SRC 
+https://github.com/diegoperezm/gh-project-management/issues/3
+#+END_SRC
+
 
 *** Create file  README.org
 
@@ -201,7 +207,7 @@ git add README.org
 *** Commit changes
 
 #+BEGIN_SRC 
-git commit -m 'fix #1, Add README.org file'
+git commit -m 'fix #3, Add README.org file'
 #+END_SRC
 
 
