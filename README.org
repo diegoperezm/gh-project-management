@@ -1,0 +1,217 @@
+* How to: GitHub CLI project management 
+
+** Setup 
+
+*** Create a folder
+   
+ #+BEGIN_SRC 
+ mkdir gh-project-management;
+ cd gh-project-management;
+ #+END_SRC
+
+
+*** Create a Git repository
+
+ #+BEGIN_SRC 
+ git init 
+ #+END_SRC
+
+
+*** Create a repo
+
+ #+BEGIN_SRC 
+ gh repo create 
+ #+END_SRC
+
+ #+BEGIN_SRC 
+ touch testfile.js;
+ git add testfile.js;
+ git commit -m 'first commit';
+ git branch -M master;
+ git push -u origin master;
+ #+END_SRC
+
+
+*** Create a  GitHub project
+
+**** Open the URL of the project with a browser  
+
+https://github.com/diegoperezm/gh-project-management
+
+
+**** Click: button  "Projects"
+
+
+[[file:./img/click-project.png]]
+
+
+**** Click: button "Create a project"
+
+
+[[file:./img/click-create-a-project.png]]
+
+
+**** Write "Project board name" and Select "Automated Kanban" (Project Template)
+    
+[[file:./img/select-automated-kanban.png]] 
+
+
+**** Click: button "Create project"
+
+ 
+[[file:./img/click-create-save-project.png]]
+
+
+**** The Automated Kanban template
+
+
+[[file:./img/kanban-template.png]]
+
+
+
+** Add cards to the kanban
+
+*** Create an issue
+
+ #+BEGIN_SRC 
+ gh issue create --title "Add README"  --project gh-project-management 
+ #+END_SRC
+
+**** Interactive, choose:
+
+ - Body  [ edit body or press enter to skip ]
+
+ - What's next? [Use arrows to move, type to filter]
+    -> Submit
+
+You will get an issue number:
+
+#+BEGIN_SRC 
+https://github.com/diegoperezm/gh-project-management/issues/1
+#+END_SRC
+
+
+*** Get issue list 
+
+if you want, you can get a list of issues wit the command: 
+
+#+BEGIN_SRC 
+gh issue list
+#+END_SRC
+
+
+** Create a pull request for the issue    
+
+*** Create branch 
+
+ #+BEGIN_SRC 
+ git checkout -b  readme;
+ touch README.md ;
+ git add README.md;  
+ git commit -m 'Add README';
+ git push --set-upstream origin readme;
+ #+END_SRC
+
+
+*** Create a pull request (link the issue)
+
+ #+BEGIN_SRC 
+gh pr create --title "Add README fix #1"   --project gh-project-management
+ #+END_SRC
+
+**** Interactive, choose:
+
+ - Body  [ edit body or press enter to skip ]
+
+ - What's next? [Use arrows to move, type to filter]
+    -> Submit
+
+
+You will get a pull request number:
+
+#+BEGIN_SRC 
+https://github.com/diegoperezm/gh-project-management/pull/2
+#+END_SRC
+
+
+
+****  close a pull request {number | url | branch } [flags]
+ 
+ #+BEGIN_SRC 
+ gh pr close  2
+ #+END_SRC
+
+
+**** Change to master
+
+ #+BEGIN_SRC 
+ git checkout master
+ #+END_SRC
+
+
+*** Merge pull request (close issue) 
+
+ #+BEGIN_SRC 
+ gh pr merge 2 
+ #+END_SRC
+
+**** interactive, choose: 
+ 
+ - ? What merge method would you  like to use?  
+   -> Create a merge commit 
+
+ - ? Delete  the branch locally and on GitHub? (Y/n) 
+  -> n
+
+
+*** Git pull for changes
+
+#+BEGIN_SRC 
+git pull
+#+END_SRC
+
+
+** Create a commit for an issue
+
+*** Create an issue
+
+#+BEGIN_SRC 
+gh issue create --title "Add README dot org"  --project gh-project-management 
+#+END_SRC
+
+
+*** Create file  README.org
+
+#+BEGIN_SRC 
+touch README.org
+#+END_SRC
+
+****  Add content (to README.org) 
+
+Use an editor or IDE to add content 
+
+
+*** Add file to index (git) 
+
+#+BEGIN_SRC 
+git add README.org
+#+END_SRC
+
+
+*** Commit changes
+
+#+BEGIN_SRC 
+git commit -m 'fix #1, Add README.org file'
+#+END_SRC
+
+
+*** Push commit 
+
+#+BEGIN_SRC 
+git push 
+#+END_SRC
+
+
+
+
+
