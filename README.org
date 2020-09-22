@@ -93,7 +93,7 @@ https://github.com/diegoperezm/gh-project-management/issues/1
 
 *** Get issue list 
 
-if you want, you can get a list of issues wit the command: 
+if you want, you can get a list of issues with the command: 
 
 #+BEGIN_SRC 
 gh issue list
