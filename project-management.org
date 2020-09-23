@@ -1,0 +1,133 @@
+* Issues Management 
+
+** Issues
+
+*** Add literate file for project management 
+   
+**** Create issue  
+
+#+name: add-literate-file
+ #+BEGIN_SRC  sh
+gh issue create --title "Add literate file for project management"   --body "Add literate file for project" --project gh-project-management
+ #+END_SRC
+
+
+**** Add literate file to index (git)
+
+#+NAME: git-add-issue-add-literate-file
+#+BEGIN_SRC sh
+git add project-management.org
+#+END_SRC
+
+
+**** Commit  and close issue
+
+- [ ]  Add issue number to commit message (#number)
+
+#+BEGIN_SRC 
+git commit -m 'fix #number,  Add literate file'
+#+END_SRC
+
+
+**** Push commit 
+
+    #+BEGIN_SRC 
+git push 
+    #+END_SRC
+
+
+**** Pull commit 
+
+#+BEGIN_SRC 
+git pull 
+#+END_SRC
+
+
+* Project info
+  
+** Issues info
+
+*** Issue list open
+
+#+NAME:  issue-list-open
+#+BEGIN_SRC sh :results verbatim 
+gh issue list --state open 
+#+END_SRC
+
+
+*** Issue list closed
+
+#+NAME:  issue-list-closed
+#+BEGIN_SRC sh 
+gh issue list --state closed 
+#+END_SRC
+
+
+*** Issue list all 
+
+#+NAME:  issue-list-all
+#+BEGIN_SRC sh 
+gh issue list --state all 
+#+END_SRC
+
+
+
+** Pull Requests info
+
+*** Pr list  open
+
+#+NAME:  pr-list-open
+#+BEGIN_SRC sh
+gh pr list --state open
+#+END_SRC
+
+
+*** Pr list closed 
+
+#+NAME:  pr-list-closed
+#+BEGIN_SRC sh
+gh pr list --state open
+#+END_SRC
+
+
+*** Pr list all 
+
+#+NAME:  pr-list-all
+#+BEGIN_SRC sh
+gh pr list --state all
+#+END_SRC
+
+#+RESULTS: pr-list-all
+| 10 | Fix #9, fix typo in README.org | fix-typo        | MERGED |
+|  7 | Fix #6, delete testfile        | delete-testfile | MERGED |
+|  2 | Add README fix #1              | readme          | MERGED |
+
+
+
+* gh manual
+
+** Issues options
+
+#+BEGIN_QUOTE
+-a,   --assignee string       Filter by assignee
+-A,   --author string           Filter by author
+-l,    --label strings            Filter by labels
+-L,   --limit int                   Maximum number of issues to fetch (default 30)
+       --mention string        Filter by mention
+-m, --milestone number   Filter by milestone number or `title`
+-s,   --state string             Filter by state: {open|closed|all} (default "open")
+-w,  --web                         Open the browser to list the issue(s)
+#+END_QUOTE
+
+
+** Pull requests options
+
+#+BEGIN_QUOTE
+ -a, --assignee string     Filter by assignee
+ -B, --base string            Filter by base branch
+ -l, --label strings           Filter by labels
+ -L, --limit int                 Maximum number of items to fetch (default 30)
+ -s, --state string            Filter by state: {open|closed|merged|all} (default "open")
+ -w, --web                      Open the browser to list the pull requests
+#+END_QUOTE
+
